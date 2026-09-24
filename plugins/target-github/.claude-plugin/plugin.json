@@ -1,0 +1,11 @@
+{
+  "name": "target-github",
+  "displayName": "Target to GitHub",
+  "description": "Connects Adobe Target and exports activities, audiences, and offers into a GitHub repository.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Coworker sample"
+  },
+  "license": "MIT",
+  "keywords": ["adobe-target", "github", "mcp"]
+}

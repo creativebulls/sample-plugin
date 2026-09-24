@@ -17,6 +17,17 @@
       },
       "category": "productivity",
       "tags": ["sample", "status-update"]
+    },
+    {
+      "name": "target-github",
+      "source": "./plugins/target-github",
+      "description": "Connects Adobe Target and exports activities, audiences, and offers into a GitHub repository.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Coworker sample"
+      },
+      "category": "adobe-target",
+      "tags": ["adobe-target", "github", "mcp"]
     }
   ]
 }

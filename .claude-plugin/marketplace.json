@@ -21,7 +21,7 @@
     {
       "name": "target-github",
       "source": "./plugins/target-github",
-      "description": "Connects Adobe Target and exports activities, audiences, and offers into a GitHub repository.",
+      "description": "Versions Adobe Target activities, offers, and HTML in GitHub before they are created in Target.",
       "version": "1.0.0",
       "author": {
         "name": "Coworker sample"

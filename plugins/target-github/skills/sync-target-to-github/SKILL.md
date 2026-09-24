@@ -1,36 +1,35 @@
 ---
 name: sync-target-to-github
-description: Connect Adobe Target to a GitHub repository and export activities, audiences, and offers into that repo. Use when the user wants Target data synced, snapshotted, or written to GitHub.
+description: Version-control Adobe Target in GitHub. Use when the user creates or changes an activity, offer, or HTML offer, or asks to connect Target to a GitHub repository. Commit the definition to GitHub before creating or updating it in Target.
 ---
 
-# Sync Adobe Target to GitHub
+# Version-control Target in GitHub
 
-Read Adobe Target through the `adobe-target` MCP server and write a snapshot into the GitHub repository the user names.
+GitHub is the source of truth. Adobe Target is updated only after the matching files are pushed.
 
-## Confirm the destination
+The `adobe-target` server is `https://targetmcp.adobe.io/mcp`. The first Target call asks the user to sign in to Adobe and choose the organization. GitHub writes use the repository the user names. Do not store tokens, cookies, or client secrets in that repository.
 
-Ask for the repository as `owner/repo` if the user did not give one. Use the folder `target/` at the repo root unless the user names another folder. Do not create or change Target activities, offers, or audiences unless the user explicitly asks for a Target change.
+## Destination
 
-## Read Target
+If the user did not give a repository, ask for it as `owner/repo`. Keep files under `target/` at the repo root unless the user names another folder.
 
-On the first Target call, the user must complete the Adobe sign-in and pick the organization. Read only what that account is allowed to see.
+| What the user creates | File |
+| --- | --- |
+| Activity | `target/activities/<slug>.json` |
+| Offer | `target/offers/<slug>.json` |
+| HTML offer | `target/html/<slug>.html` plus `target/html/<slug>.json` for the offer name and Target id |
 
-Collect:
+`<slug>` is the name in lowercase with spaces replaced by hyphens.
 
-- Active and inactive activities, with id, name, type, state, and last modified time when the tool returns them
-- Audiences referenced by those activities
-- Offers referenced by those activities
+## Create or change
 
-If a tool fails, report the error and stop. Do not invent activities, metrics, or ids.
+Follow this order. Stop if a step fails.
 
-## Write the repository
+1. Write the activity, offer, or HTML into the file above. Include the name and the content the user asked for. Leave `targetId` empty on a new item.
+2. Commit and push that file to the default branch. Use a message such as `Add Target activity homepage-banner`.
+3. After the push succeeds, create or update the item in Target with the `adobe-target` tools.
+4. Write the id Target returns into `targetId` in the same file, then commit and push again with a message such as `Record Target id for homepage-banner`.
 
-Create or replace these files in the destination folder:
+Do not call a Target create or update tool before the first push succeeds. Do not invent ids, metrics, or HTML.
 
-- `index.md` — a table of activities with links to the detail files
-- `activities/<activity-id>.md` — one file per activity, using only fields returned by Target
-- `audiences.md` and `offers.md` — lists of the audiences and offers that were returned
-
-Do not commit access tokens, cookies, or client secrets.
-
-If GitHub write access is available, commit the files on a branch named `target-sync` and open a pull request. If it is not, show the file contents so the user can commit them.
+A create made directly in the Target website is not sent to GitHub by this plugin. When the user asks to backfill those items, read them from Target and commit one file per item using the same paths.

@@ -1,8 +1,8 @@
 {
   "name": "target-github",
   "displayName": "Target to GitHub",
-  "description": "Versions Adobe Target activities, offers, and HTML in GitHub before they are created in Target.",
-  "version": "1.0.0",
+  "description": "Connects GitHub and versions Adobe Target activities, offers, and HTML in that repository before they are created in Target.",
+  "version": "1.1.0",
   "author": {
     "name": "Coworker sample"
   },

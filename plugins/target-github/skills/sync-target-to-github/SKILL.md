@@ -7,7 +7,7 @@ description: Version-control Adobe Target in GitHub. Use when the user creates o
 
 GitHub is the source of truth. Adobe Target is updated only after the matching files are pushed.
 
-The `adobe-target` server is `https://targetmcp.adobe.io/mcp`. The first Target call asks the user to sign in to Adobe and choose the organization. GitHub writes use the repository the user names. Do not store tokens, cookies, or client secrets in that repository.
+The `adobe-target` server is `https://targetmcp.adobe.io/mcp`. The first Target call asks the user to sign in to Adobe and choose the organization. GitHub writes use the `github` server. If GitHub is not connected, run the `connect-github` skill before the first push. Do not store tokens, cookies, or client secrets in the repository.
 
 ## Destination
 

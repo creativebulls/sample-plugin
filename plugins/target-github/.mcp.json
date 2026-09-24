@@ -3,6 +3,10 @@
     "adobe-target": {
       "type": "http",
       "url": "https://targetmcp.adobe.io/mcp"
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/"
     }
   }
 }

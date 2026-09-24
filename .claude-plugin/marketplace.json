@@ -1,0 +1,22 @@
+{
+  "name": "sample-coworker-marketplace",
+  "owner": {
+    "name": "Coworker sample"
+  },
+  "metadata": {
+    "description": "Local sample marketplace with one plugin for Adobe Coworker."
+  },
+  "plugins": [
+    {
+      "name": "sample-coworker-plugin",
+      "source": "./plugins/sample-coworker-plugin",
+      "description": "Sample plugin that drafts a short status update from notes.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Coworker sample"
+      },
+      "category": "productivity",
+      "tags": ["sample", "status-update"]
+    }
+  ]
+}

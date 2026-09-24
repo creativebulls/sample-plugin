@@ -1,0 +1,11 @@
+{
+  "name": "sample-coworker-plugin",
+  "displayName": "Sample Coworker Plugin",
+  "description": "Sample plugin that drafts a short status update from notes.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Coworker sample"
+  },
+  "license": "MIT",
+  "keywords": ["sample", "status-update"]
+}
